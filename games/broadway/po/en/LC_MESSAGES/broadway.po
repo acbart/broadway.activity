@@ -1,0 +1,339 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-07-11 16:42+Eastern Daylight Time\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: action.py:85
+msgid "<Looks %s>"
+msgstr ""
+
+#: action.py:87
+msgid "<Moves>"
+msgstr ""
+
+#: action.py:89
+msgid "<%s>"
+msgstr ""
+
+#: action.py:91
+msgid "<Faces %s>"
+msgstr ""
+
+#: action.py:93
+msgid "<Exits %s>"
+msgstr ""
+
+#: action.py:96
+msgid "<Enters left>"
+msgstr ""
+
+#: action.py:98
+msgid "<Enters right>"
+msgstr ""
+
+#: action.py:100
+msgid ""
+"\n"
+"[%s]\t"
+msgstr ""
+
+#: action.py:102
+msgid "<Say %s>"
+msgstr ""
+
+#: action.py:104
+msgid "<Error>"
+msgstr ""
+
+#: action.py:112
+msgid "<%s, LOOKS, %s>"
+msgstr ""
+
+#: action.py:114
+msgid "<%s, MOVES, %s>"
+msgstr ""
+
+#: action.py:116
+msgid "<%s, DOES, %s>"
+msgstr ""
+
+#: action.py:118
+msgid "<%s, FACES, %s>"
+msgstr ""
+
+#: action.py:120
+msgid "<%s, EXITS, %s>"
+msgstr ""
+
+#: action.py:123
+msgid "<%s, FACES, LEFT>"
+msgstr ""
+
+#: action.py:125
+msgid "<%s, FACES, RIGHT>"
+msgstr ""
+
+#: action.py:127
+msgid "<%s, FOCUSES, %s>"
+msgstr ""
+
+#: action.py:129
+msgid "<%s, STARTS, %s>"
+msgstr ""
+
+#: action.py:131
+msgid "<%s, SAYS, %s>"
+msgstr ""
+
+#: action.py:133
+msgid "<%s, %s, %s>"
+msgstr ""
+
+#: action.py:141
+msgid "Looks %s."
+msgstr ""
+
+#: action.py:143
+msgid "Moves."
+msgstr ""
+
+#: action.py:145
+msgid "%s."
+msgstr ""
+
+#: action.py:147
+msgid "Faces %s."
+msgstr ""
+
+#: action.py:149
+msgid "Exits %s."
+msgstr ""
+
+#: action.py:152
+msgid "Enters left."
+msgstr ""
+
+#: action.py:154
+msgid "Enters right."
+msgstr ""
+
+#: auxiliary.py:149
+msgid "Come in:"
+msgstr ""
+
+#: auxiliary.py:151
+msgid "Leave:   "
+msgstr ""
+
+#: backdrop.py:51
+msgid "Add more actors to see more twists!"
+msgstr ""
+
+#: constants.py:17
+msgid ""
+"Broadway by Austin Cory Bart\n"
+"Graphics by Margaret Spagnolo\n"
+"PGU by Phill Hassey and Peter Rogers\n"
+"Spyral by Robert Deaton\n"
+"Pygame from various\n"
+"Espeak from various\n"
+"Icons from various\n"
+"Based on Hollywood, by Theatrix."
+msgstr ""
+
+#: constants.py:143
+msgid "Name"
+msgstr ""
+
+#: constants.py:145
+msgid "Hello, I am currently speaking. How do I sound?"
+msgstr ""
+
+#: panel.py:90
+msgid "New"
+msgstr ""
+
+#: panel.py:91
+msgid "Load"
+msgstr ""
+
+#: panel.py:92 panel.py:100
+msgid "Save"
+msgstr ""
+
+#: panel.py:93
+msgid "Save As"
+msgstr ""
+
+#: panel.py:107
+msgid "Title: "
+msgstr ""
+
+#: panel.py:115
+msgid "Author(s): "
+msgstr ""
+
+#: panel.py:122
+msgid "Description: "
+msgstr ""
+
+#: panel.py:140 panel.py:162
+msgid "Credits"
+msgstr ""
+
+#: panel.py:182
+msgid "Load a script"
+msgstr ""
+
+#: panel.py:183 panel.py:200 panel.py:224
+msgid "Okay"
+msgstr ""
+
+#: panel.py:199
+msgid "Save a script"
+msgstr ""
+
+#: panel.py:225
+msgid "Cancel"
+msgstr ""
+
+#: panel.py:259
+msgid "Overwrite?"
+msgstr ""
+
+#: panel.py:260
+msgid "This file already exists:"
+msgstr ""
+
+#: panel.py:262
+msgid "Are you sure you want to overwrite it?"
+msgstr ""
+
+#: panel.py:271 panel.py:282
+msgid "Lose Unsaved Changes?"
+msgstr ""
+
+#: panel.py:272 panel.py:283
+msgid "You have unsaved changes!"
+msgstr ""
+
+#: panel.py:273
+msgid "Are you sure you want to load a  script?"
+msgstr ""
+
+#: panel.py:284
+msgid "Are you sure you want to start a new script?"
+msgstr ""
+
+#: panel.py:363
+msgid "No backdrops loaded"
+msgstr ""
+
+#: panel.py:365
+msgid "Backdrop %d"
+msgstr ""
+
+#: panel.py:367
+msgid "Backdrops %d to %d"
+msgstr ""
+
+#: panel.py:404
+msgid "Remove Actor"
+msgstr ""
+
+#: panel.py:414 panel.py:703 panel.py:706
+msgid "Add actor"
+msgstr ""
+
+#: panel.py:480
+msgid "Initial Pose: "
+msgstr ""
+
+#: panel.py:519
+msgid "Initial Look: "
+msgstr ""
+
+#: panel.py:527
+msgid "Initial Face: "
+msgstr ""
+
+#: panel.py:552 panel.py:889
+msgid "Move"
+msgstr ""
+
+#: panel.py:556
+msgid " or start offscreen "
+msgstr ""
+
+#: panel.py:615
+msgid "Actor: "
+msgstr ""
+
+#: panel.py:630
+msgid "Name: "
+msgstr ""
+
+#: panel.py:646
+msgid "Voice: "
+msgstr ""
+
+#: panel.py:648 panel.py:745 panel.py:755
+msgid "Test"
+msgstr ""
+
+#: panel.py:761
+msgid "Stop"
+msgstr ""
+
+#: panel.py:784
+msgid "Change Pose: "
+msgstr ""
+
+#: panel.py:807
+msgid "Look: "
+msgstr ""
+
+#: panel.py:823
+msgid "Face: "
+msgstr ""
+
+#: panel.py:840
+msgid "New Idea"
+msgstr ""
+
+#: panel.py:846
+msgid "Use Idea"
+msgstr ""
+
+#: panel.py:854
+msgid "Current Idea:"
+msgstr ""
+
+#: panel.py:962
+msgid "Change speaker:"
+msgstr ""
+
+#: panel.py:1113
+msgid "Subtitles:  "
+msgstr ""
+
+#: panel.py:1119
+msgid "Mute:  "
+msgstr ""
+
+#: script.py:141
+msgid "Narrator"
+msgstr ""
+

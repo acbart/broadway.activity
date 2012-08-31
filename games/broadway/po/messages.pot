@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-07-04 16:19+EDT\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: panel.py:24
+msgid "Generic Panel"
+msgstr ""
+
+#: panel.py:89
+msgid "New"
+msgstr ""
+
+#: panel.py:90
+msgid "Load"
+msgstr ""
+
+#: panel.py:91 panel.py:99
+msgid "Save"
+msgstr ""
+
+#: panel.py:92
+msgid "Save As"
+msgstr ""
+
+#: panel.py:106
+msgid "Title: "
+msgstr ""
+
+#: panel.py:114
+msgid "Author(s): "
+msgstr ""
+
+#: panel.py:121
+msgid "Description: "
+msgstr ""
+
+#: panel.py:139 panel.py:160
+msgid "Credits"
+msgstr ""
+
+#: panel.py:174
+msgid "Load a script"
+msgstr ""
+
+#: panel.py:175 panel.py:192 panel.py:216
+msgid "Okay"
+msgstr ""
+
+#: panel.py:191
+msgid "Save a script"
+msgstr ""
+
+#: panel.py:217
+msgid "Cancel"
+msgstr ""
+
+#: panel.py:251
+msgid "Overwrite?"
+msgstr ""
+
+#: panel.py:252
+msgid "This file already exists:"
+msgstr ""
+
+#: panel.py:254
+msgid "Are you sure you want to overwrite it?"
+msgstr ""
+
+#: panel.py:263 panel.py:274
+msgid "Lose Unsaved Changes?"
+msgstr ""
+
+#: panel.py:264 panel.py:275
+msgid "You have unsaved changes!"
+msgstr ""
+
+#: panel.py:265
+msgid "Are you sure you want to load a  script?"
+msgstr ""
+
+#: panel.py:276
+msgid "Are you sure you want to start a new script?"
+msgstr ""
+
+#: panel.py:284
+msgid "Backdrop"
+msgstr ""
+
+#: panel.py:355
+msgid "No backdrops loaded"
+msgstr ""
+
+#: panel.py:357
+msgid "Backdrop %d"
+msgstr ""
+
+#: panel.py:359
+msgid "Backdrops %d to %d"
+msgstr ""
+
+#: panel.py:383
+msgid "Actor"
+msgstr ""
+
+#: panel.py:396
+msgid "Remove Actor"
+msgstr ""
+
+#: panel.py:406 panel.py:695 panel.py:698
+msgid "Add actor"
+msgstr ""
+
+#: panel.py:472
+msgid "Initial Pose: "
+msgstr ""
+
+#: panel.py:511
+msgid "Initial Look: "
+msgstr ""
+
+#: panel.py:519
+msgid "Initial Face: "
+msgstr ""
+
+#: panel.py:544 panel.py:881
+msgid "Move"
+msgstr ""
+
+#: panel.py:548
+msgid " or start offscreen "
+msgstr ""
+
+#: panel.py:607
+msgid "Actor: "
+msgstr ""
+
+#: panel.py:622
+msgid "Name: "
+msgstr ""
+
+#: panel.py:638
+msgid "Voice: "
+msgstr ""
+
+#: panel.py:640 panel.py:737 panel.py:747
+msgid "Test"
+msgstr ""
+
+#: panel.py:711
+msgid "Plan"
+msgstr ""
+
+#: panel.py:717
+msgid "Write"
+msgstr ""
+
+#: panel.py:753
+msgid "Stop"
+msgstr ""
+
+#: panel.py:776
+msgid "Change Pose: "
+msgstr ""
+
+#: panel.py:799
+msgid "Look: "
+msgstr ""
+
+#: panel.py:815
+msgid "Face: "
+msgstr ""
+
+#: panel.py:832
+msgid "New Idea"
+msgstr ""
+
+#: panel.py:838
+msgid "Use Idea"
+msgstr ""
+
+#: panel.py:846
+msgid "Current Idea:"
+msgstr ""
+
+#: panel.py:954
+msgid "Change speaker:"
+msgstr ""
+
+#: panel.py:1014
+msgid "Theater"
+msgstr ""
+
+#: panel.py:1105
+msgid "Subtitles:  "
+msgstr ""
+
+#: panel.py:1111
+msgid "Mute:  "
+msgstr ""
+
