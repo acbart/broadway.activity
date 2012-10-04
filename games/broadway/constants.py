@@ -18,7 +18,7 @@ GAME_RUNNING= True;
 information= {};
 information['name']= 'Broadway';
 information['author']= 'Austin Cory Bart';
-information['version']= 2.0;
+information['version']= 2.1;
 information['filetype']= '.bdw';
 information['description']= '';
 information['credits']= _("Broadway by Austin Cory Bart\nGraphics by Margaret Spagnolo and various\nPGU by Phill Hassey and Peter Rogers\nSpyral by Robert Deaton\nPygame from various\nEspeak from various\nIcons from various\nBased on Hollywood, by Theatrix\nSpecial thanks to Dr.s Pollock, Harvey, Mouza, Glancey, and Burns.");
@@ -107,7 +107,10 @@ colors['white'] = (0xFF, 0xFF, 0xFF);
 colors['black'] = (0x00, 0x00, 0x00);
 
 geom= {};
-if sys.platform != 'linux2': offset= -35;
+pygame.display.init()
+screen_height = pygame.display.Info().current_h
+pygame.display.quit()
+if screen_height < 900: offset= -35;
 else: offset= 0;
 geom['screen'] = Rect(0, 0, 1200, 900 )
 #

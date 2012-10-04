@@ -12,6 +12,7 @@ _ = lambda x: x
 """
 HACK: Auxilary files are always dirty hacks, but often very convenient ones.
 In a perfect program, these would be factored away to other places.
+Broadway is not perfect.
 """
 
 # """

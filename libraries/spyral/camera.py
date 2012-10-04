@@ -273,9 +273,9 @@ class Camera(object):
 
 		# print "%d / %d static drawn, %d dynamic" %
 		#	   (drawn_static, len(s), len(blits))
-		pygame.display.set_caption("%d / %d static, %d dynamic. %d ups, %d fps" %
-			(drawn_static, len(s), len(blits), spyral.director.get_scene().clock.get_ups(),
-			spyral.director.get_scene().clock.get_fps()))
+		#pygame.display.set_caption("%d / %d static, %d dynamic. %d ups, %d fps" %
+		#	(drawn_static, len(s), len(blits), spyral.director.get_scene().clock.get_ups(),
+		#	spyral.director.get_scene().clock.get_fps()))
 		# Do the display update
 		if not offscreen:
 			pygame.display.update(self._clear_next_frame + self._clear_this_frame)

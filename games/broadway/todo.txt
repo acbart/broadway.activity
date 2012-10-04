@@ -1,4 +1,7 @@
 TODO:
+    Internationalize
+    School / Individual mode
+    Journal integration
 
 Wishful thinking:
 	Youtube button

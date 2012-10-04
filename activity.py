@@ -25,7 +25,7 @@ class Activity(sugar.activity.activity.Activity):
         
         def run():
             launch = games.load_module(game).launcher_info['launch_func']
-            spyral.director.init((1200,900), fullscreen = False, max_fps = 30)
+            spyral.director.init((1200,900), fullscreen = False, max_fps = 30, caption=game)
             launch()
             spyral.director.run_sugar()
             
@@ -39,7 +39,7 @@ class Activity(sugar.activity.activity.Activity):
 
 def main():
     launch = games.load_module(game).launcher_info['launch_func']
-    spyral.director.init((0,0), fullscreen = False, max_fps = 30)
+    spyral.director.init((0,0), fullscreen = False, max_fps = 30, caption=game)
     launch()
     try:
         spyral.director.run()

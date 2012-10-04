@@ -163,7 +163,7 @@ def main():
 	spyral.director.push(Broadway())
 
 def mainSugarless():
-	spyral.director.init(geom['screen'].size, fullscreen = False, max_fps = 30)
+	spyral.director.init(geom['screen'].size, fullscreen = False, max_fps = 30, caption='Broadway')
 	spyral.director.push(Broadway())
 	spyral.director.run()
 	
