@@ -4,10 +4,9 @@ import time;
 import os, sys, glob;
 
 # Localization
-_ = lambda x: x
-#import gettext;
-#gtlanguage = gettext.translation('broadway', 'games/broadway/po', languages=['en'])
-#gtlanguage.install()
+import gettext;
+gtlanguage = gettext.translation('broadway', 'games/broadway/po', languages=['en'])
+gtlanguage.install()
 
 #import cProfile
 #from guppy import hpy; hp = hpy();

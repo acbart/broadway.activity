@@ -196,6 +196,11 @@ hacks['teacher']= settingsData['Teacher']
 hacks['subtitle']= settingsData['Subtitle']
 hacks['server']= settingsData['Server']
 
+# All the strings that don't show up naturally, to ensure that they're 
+# automatically translated. This is probably a horrible way of doing this, but
+# a better way wasn't immediately clear and I'm done investing time into this!
+[_("Angry"), _("Annoyed"), _("Anxious"), _("Bored"), _("Cheerful"), __("Cocky"), _("Distraught"), _("Embarrassed"), _("Excited"), _("Grumpy"), _("Guilty"), _("Happy"), _("Joyful"), _("Loving"), _("Normal"), _("Sad"), _("Scared"), _("Surprised"), _("Unhappy"), _("Worried"), _("Stands"), _("Left"), _("Right"), _("Cheerleader (Blue)"), _("Cheerleader (Brown)"), _("Cheerleader (Pink)"), _("Hippie (Brown)"), _("Hippie (Green)"), _("Hippie (Pink)"), _("Little girl (Brown)"), _("Little girl (Peach)"), _("Little girl (Yellow)"), _("Narrator"), _("Nerd (Brown)"), _("Nerd (Green)"), _("Nerd (Red)"), _("Princess (Blue)"), _("Princess (Green)"), _("Princess (Peach)"), _("Basketball"), _("Beach"), _("Country"), _("Jungle"), _("School"), _("Theater"), _("Tutorial"), _("Winter"), _("Female 1"), _("Female 2"), _("Female 3"), _("Female 4"), _("Female 5"), _("Female Fast"), _("Female Slow"), _("Whisper"), _("Male 1"), _("Male 2"), _("Male 3"), _("Male 4"), _("Male 5"), _("Male Fast"), _("Male Slow"), _("Croaker")_("File"), _("Backdrop"), _("Actor"), _("Plan"), _("Write"), _("Theater"), _("Generic Panel")]
+
 processes= {};
 if os.name == 'nt':
 	processes['espeak']= r"C:\Program Files (x86)\eSpeak\command_line\espeak.exe";

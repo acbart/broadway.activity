@@ -195,8 +195,8 @@ class FilePanel(Panel):
 				message = "a Title"
 			else:
 				message = "an Author or Title"
-			self.confirmActionDialog(_("Save without %s?" % message),
-									[ _("You haven't given your script %s." % message),
+			self.confirmActionDialog(_("Save without %{message}s?") % {"message" : message},
+									[ _("You haven't given your script %{message}s.") % {"message" : message},
 									  _("Are you sure you want to export it?")],
 									okayFunction= self.openExportDialog);
 	
