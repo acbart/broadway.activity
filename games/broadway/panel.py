@@ -14,6 +14,7 @@ from pgu import html
 from scriptarea import ScriptArea
 
 # Broadway Imports
+from broadway import hacks
 from constants import *;
 import backdrop;
 import actor;
@@ -188,13 +189,13 @@ class FilePanel(Panel):
 			self.openExportDialog()
 		else:
 			if self.script.metadata.title:
-				message = "an Author"
+				message = _("an Author")
 			elif self.script.metadata.author:
-				message = "a Title"
+				message = _("a Title")
 			else:
-				message = "an Author or Title"
-			self.confirmActionDialog(_("Save without %{message}s?") % {"message" : message},
-									[ _("You haven't given your script %{message}s.") % {"message" : message},
+				message = _("an Author or Title")
+			self.confirmActionDialog(_("Save without %(message)s?") % {"message" : message},
+									[ _("You haven't given your script %(message)s.") % {"message" : message},
 									  _("Are you sure you want to export it?")],
 									okayFunction= self.openExportDialog);
 	
@@ -221,7 +222,7 @@ class FilePanel(Panel):
 		main.td(gui.Label(_("Image Amount: "), style={'margin': 4}))
 		imageAmountSelector.add(_("Tons"), "Tons")
 		imageAmountSelector.add(_("Many"), "Many")
-		imageAmountSelector.add(_("Few"), "Few")
+		imageAmountSelector.add(_("Few"),  "Few")
 		imageAmountSelector.add(_("None"), "None")
 		main.td(imageAmountSelector)
 		
@@ -282,7 +283,7 @@ class FilePanel(Panel):
 			else:
 				valueType = ['.txt']
 			exportName = filenameStrip(self.script.metadata.title) + valueType[0]
-			d = gui.FileDialog(_("Export as %s") % fancy,
+			d = gui.FileDialog(_("Export as %(fanciness)s") % {"fanciness" : _(fancy)},
 							   _("Okay"), 
 							   path=directories['export-folder'], 
 							   filter=valueType,
@@ -516,7 +517,7 @@ class BackdropPanel(Panel):
 			backdropToolTable.tr();
 			backdropToolTable.td(gui.Image(thumbPath));
 			backdropToolTable.tr();
-			backdropToolTable.td(gui.Label(translate(string.capwords(aBackdrop))));
+			backdropToolTable.td(gui.Label(_(string.capwords(aBackdrop))));
 			backdropTool= gui.Tool(backdropGroup, 
 								backdropToolTable, 
 								filePath,
@@ -564,9 +565,10 @@ class BackdropPanel(Panel):
 		if start == end:
 			label= _("No backdrops loaded");
 		elif (end - start) == 1:
-			label= _("Backdrop %d") % (start+1);
+			label= _("Backdrop %(index)d") % {"index": (start+1)}
 		else:
-			label= _("Backdrops %d to %d") % (start+1, end);
+			label= _("Backdrops %(start_index)d to %(end_index)d") % {"start_index": start+1, 
+                                                                      "end_index": end}
 		navigationButtons.td(gui.Label(label));
 		forwardButton= gui.Button(gui.Image(images['go-next']));
 		forwardButton.connect(gui.CLICK, self.gotoBackdropPage, self.backdropIndex+self.backdropsOnscreen);
@@ -742,8 +744,8 @@ class ActorPanel(Panel):
 		poseSelecter= gui.Select(name='actor-select-pose', value=pose, cols=3);
 		poseSelecter.connect(gui.SELECT, self.changePose);
 		for aPose in poses:
-			prettyPose= aPose.replace('_',' ').title();
-			poseSelecter.add(translate(prettyPose), aPose);
+			prettyPose= _(aPose.replace('_',' ').title())
+			poseSelecter.add(prettyPose, aPose);
 		
 		self.editablesDocumentRight.add(gui.Label(_("Initial Pose: ")));
 		self.editablesDocumentRight.add(poseSelecter);
@@ -781,7 +783,7 @@ class ActorPanel(Panel):
 		lookSelecter= gui.Select(name='actor-select-look', value=look, cols=4);
 		lookSelecter.connect(gui.SELECT, self.changeLook);
 		for aLook in looks:
-			prettyLook= translate(aLook.replace('_',' ').title());
+			prettyLook= _(aLook.replace('_',' ').title())
 			lookSelecter.add(prettyLook, aLook);
 		
 		self.editablesDocumentRight.add(gui.Label(_("Initial Look: ")));
@@ -794,8 +796,8 @@ class ActorPanel(Panel):
 		
 		self.editablesDocumentRight.add(gui.Label(_("Initial Face: ")));
 		for aDirection in directions:
-			prettyDirection= aDirection.replace('_',' ').title();
-			positionButton= gui.Button(translate(prettyDirection), name='actor-button-direction-'+prettyDirection);
+			prettyDirection= _(aDirection.replace('_',' ').title());
+			positionButton= gui.Button(prettyDirection, name='actor-button-direction-'+prettyDirection);
 			positionButton.connect(gui.CLICK, self.changeDirection, aDirection);
 			self.editablesDocumentRight.add(positionButton);
 		self.spaceEditablesDocumentRight();
@@ -878,9 +880,9 @@ class ActorPanel(Panel):
 		skinSelecter.connect(gui.SELECT, self.changeSkin);
 		for aSkin in actors:
 			if aSkin != "narrator":
-				prettyActor= translate(aSkin.replace('_',' ').title());
-				skinSelecter.add(prettyActor, aSkin);
-		self.editablesDocumentLeft.add(gui.Label(_("Actor: ")));
+				prettyActor= _(aSkin.replace('_',' ').title())
+				skinSelecter.add(prettyActor, aSkin)
+		self.editablesDocumentLeft.add(gui.Label(_("Actor: ")))
 		self.editablesDocumentLeft.add(skinSelecter);
 		self.spaceEditablesDocumentLeft();
 	
@@ -910,7 +912,7 @@ class ActorPanel(Panel):
 		voiceSelecter= gui.Select(name='actor-select-voice', value=newActor.voice, cols=8);
 		voiceSelecter.connect(gui.SELECT, self.changeVoice);
 		for aVoice in voices:
-			voiceSelecter.add(translate(aVoice.visibleName), aVoice);
+			voiceSelecter.add(_(aVoice.visibleName), aVoice);
 		self.editablesDocumentLeft.add(gui.Label(_("Voice: ")));
 		self.editablesDocumentLeft.add(voiceSelecter);
 		speakButton= gui.Button(_("Test"), name='actor-button-test');
@@ -1046,7 +1048,7 @@ class WritePanel(Panel):
 		poseSelecter= gui.Select(name='write-select-pose', value=pose, cols=3);
 		poseSelecter.connect(gui.SELECT, self.changePose);
 		for aPose in poses:
-			prettyPose= translate(aPose.replace('_',' ').title());
+			prettyPose= _(aPose.replace('_',' ').title());
 			poseSelecter.add(prettyPose, aPose);
 		
 		self.selectablesDocumentLeft.add(gui.Label(_("Change Pose: ")));
@@ -1069,7 +1071,7 @@ class WritePanel(Panel):
 		lookSelecter= gui.Select(name='write-select-look', value=look, cols=4);
 		lookSelecter.connect(gui.SELECT, self.changeLook);
 		for aLook in looks:
-			prettyLook= translate(aLook.replace('_',' ').title())
+			prettyLook= _(aLook.replace('_',' ').title())
 			lookSelecter.add(prettyLook, aLook);
 		
 		self.selectablesDocumentLeft.add(gui.Label(_("Look: ")));
@@ -1091,7 +1093,7 @@ class WritePanel(Panel):
 		self.selectablesDocumentRight.add(gui.Label(_("Face: ")));
 		for aDirection in directions:
 			prettyDirection= aDirection.replace('_',' ').title();
-			positionButton= gui.Button(translate(prettyDirection), name='write-button-direction-'+prettyDirection);
+			positionButton= gui.Button(_(prettyDirection), name='write-button-direction-'+prettyDirection);
 			positionButton.connect(gui.CLICK, self.changeDirection, aDirection);
 			self.selectablesDocumentRight.add(positionButton);
 		self.spaceSelectableDocumentRight();
@@ -1149,7 +1151,7 @@ class WritePanel(Panel):
 												name='write-label-position'));
 		for aDirection in directions:
 			prettyDirection= aDirection.replace('_',' ').title();
-			positionButton= gui.Button(translate(prettyDirection), name='write-button-direction-'+prettyDirection);
+			positionButton= gui.Button(_(prettyDirection), name='write-button-direction-'+prettyDirection);
 			positionButton.connect(gui.CLICK, self.changePosition, aDirection);
 			self.selectablesDocumentRight.add(positionButton);
 		self.spaceSelectableDocumentRight();

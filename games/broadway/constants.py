@@ -193,7 +193,8 @@ k = [_("Angry"), _("Annoyed"), _("Anxious"), _("Bored"), _("Cheerful"), _("Cocky
      _("Female 3"), _("Female 4"), _("Female 5"), _("Female Fast"), _("Female Slow"), 
      _("Whisper"), _("Male 1"), _("Male 2"), _("Male 3"), _("Male 4"), _("Male 5"), 
      _("Male Fast"), _("Male Slow"), _("Croaker"), _("File"), _("Backdrop"), 
-     _("Actor"), _("Plan"), _("Write"), _("Theater"), _("Generic Panel")]
+     _("Actor"), _("Plan"), _("Write"), _("Theater"), _("Generic Panel"),
+     _("Fancy"), _("Plain")]
 del k
 
 processes= {};

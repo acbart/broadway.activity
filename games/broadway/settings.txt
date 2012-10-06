@@ -1,1 +1,1 @@
-{"Server": null, "Subtitle": true, "Teacher": null, "Mute": false, "Language": "es"}
+{"Server": null, "Subtitle": true, "Teacher": null, "Language": "es", "Mute": false}
