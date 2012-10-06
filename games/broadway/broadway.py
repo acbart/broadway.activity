@@ -14,6 +14,7 @@ hacks['teacher']= settingsData['Teacher']
 hacks['subtitle']= settingsData['Subtitle']
 hacks['server']= settingsData['Server']
 hacks['language']= settingsData['Language']
+hacks['xo']= not bool(sys.platform == 'linux2')
 
 # Localization
 import gettext;

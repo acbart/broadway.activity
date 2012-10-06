@@ -26,7 +26,7 @@ from select import Select
 from misc import ProgressBar
 
 from menus import Menus
-from dialog import Dialog, InfoDialog, FileDialog, TeacherDialog, ConfirmDialog
+from dialog import Dialog, InfoDialog, FileDialog, JournalDialog, TeacherDialog, ConfirmDialog
 from textarea import TextArea
 
 from deprecated import Toolbox, action_open, action_setvalue, action_quit, action_exec

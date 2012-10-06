@@ -166,7 +166,7 @@ if os.name == 'nt':
 	defaults['favorites']= [('games/broadway/images/dialog-usb.png', _("USB"), r"C:\Users\acbart\Documents"),
 							('games/broadway/images/dialog-star.png', _("Built-in"), r"C:\Users\acbart\Projects\broadway.activity\games\broadway"),
 							('games/broadway/images/dialog-house.png', _("Home"), r"C:\Users\acbart")]
-elif sys.platform == 'linux2':
+elif hacks['xo']:
 	defaults['favorites']= [('games/broadway/images/dialog-usb.png', _("USB"), '/media/'),
 							('games/broadway/images/dialog-star.png', _("Built-in"), '/home/olpc/Activities/broadway.activity/games/broadway'),
 							('games/broadway/images/dialog-house.png', _("Home"), '/home/olpc/')]
@@ -213,9 +213,18 @@ else:
 directories['images'] = 'games/broadway/images'
 directories['sample-scripts']= os.path.join('games/broadway', 'samples');
 if os.name == 'nt':
-	directories['export-folder']= "C:\\Users\\acbart\\"
+	directories['export-folder']= "~\\"
 else:
 	directories['export-folder']= '/home/olpc/'
+    
+if hacks['xo']:
+    try:
+        import sugar.activity.activity
+        directories['instance'] = os.path.join(sugar.activity.activity.get_activity_root(), 'instance')
+    except:
+        directories['instance'] = 'games/broadway/'
+else:
+    directories['instance'] = 'games/broadway/'
 
 def getTeacherList():
 	try:

@@ -20,6 +20,24 @@ import backdrop;
 import actor;
 import action;
 
+try:
+    from sugar.datastore import datastore
+except:
+    class datastore(object):
+        class DSObject(object):
+            def __init__(self, name):
+                self.metadata = {'title' : name}
+        @staticmethod
+        def create():
+            return datastore.DSObject()
+        @staticmethod
+        def write(ds_object):
+            pass
+        @staticmethod
+        def find(query, sorting=None):
+            names = ["Sample Story", "The Beach", "Monochrome No Kiss"]
+            return [datastore.DSObject(name) for name in names]
+
 class Panel(gui.Container):
     name= _("Generic Panel")
     """
@@ -377,19 +395,34 @@ class FilePanel(Panel):
     def openNewDialog(self):
         self.newFile();
     def openLoadDialog(self):
-        if self.script.filepath:
-            loadName = os.path.basename(self.script.filepath)
+        if hacks['xo']:
+            if self.script.filepath:
+                loadName = os.path.basename(self.script.filepath)
+            elif self.script.metadata.title:
+                loadName = self.script.metadata.title
+            else:
+                loadName = ""
+            d = gui.JournalDialog(_("Open a script"),
+                                  loadName,
+                                  True)
+            d.loadJournalItems(datastore.find('title'))
+            d.open()
+            d.connect(gui.CLOSE, self.script.refreshTheater);
+            d.connect(gui.CHANGE, self.loadFile);
         else:
-            loadName = ""
-        d = gui.FileDialog(_("Open a script"),
-                           _("Okay"), 
-                           path=directories['sample-scripts'], 
-                           filter=[information['filetype']],
-                           default= loadName,
-                           favorites = defaults['favorites'])
-        d.open()
-        d.connect(gui.CLOSE, self.script.refreshTheater);
-        d.connect(gui.CHANGE, self.loadFile);
+            if self.script.filepath:
+                loadName = os.path.basename(self.script.filepath)
+            else:
+                loadName = ""
+            d = gui.FileDialog(_("Open a script"),
+                               _("Okay"), 
+                               path=directories['sample-scripts'], 
+                               filter=[information['filetype']],
+                               default= loadName,
+                               favorites = defaults['favorites'])
+            d.open()
+            d.connect(gui.CLOSE, self.script.refreshTheater);
+            d.connect(gui.CHANGE, self.loadFile);
     def openSaveDialog(self):
         if self.script.filepath is not None:
             self.script.saveFile(self.script.filepath);
@@ -464,8 +497,15 @@ class FilePanel(Panel):
                                     okayFunction= self.script.loadFile, 
                                     arguments=fullPath);
         else:
-            self.script.loadFile(fullPath);
-            self.refreshPanel();
+            if hacks['xo']:
+                if type(fullPath.actualValue) == str:
+                    print directories['instance']
+                else:
+                    print directories['instance']
+            else:
+                self.script.loadFile(fullPath);
+                self.refreshPanel();
+                
     
     def newFile(self):
         if self.script.unsaved:
