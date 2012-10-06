@@ -19,18 +19,18 @@ try:
     from sugar.datastore import datastore
 except:
     class datastore(object):
+        class DSObject(object):
+            def __init__(self):
+                self.metadata = {}
         @staticmethod
         def create():
-            class DSObject(object):
-                def __init__(self):
-                    self.metadata = {}
             return DSObject()
         @staticmethod
         def write(ds_object):
             pass
         @staticmethod
         def find(query, sorting=None):
-            pass
+            return [DSObject(),DSObject(),DSObject()]
 
 #_ = lambda x: x
 
