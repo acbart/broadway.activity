@@ -395,34 +395,56 @@ class FilePanel(Panel):
     def openNewDialog(self):
         self.newFile();
     def openLoadDialog(self):
+        dialog = None
+        special_button= None
         if hacks['xo']:
+            t= gui.Table()
+            t.tr()
+            if self.script.journal:
+                t.td(gui.Image("games/broadway/images/dialog-folders.png"))
+                t.tr()
+                t.td(gui.Label(_("Folders")))
+            else:
+                t.td(gui.Image("games/broadway/images/dialog-journal.png"))
+                t.tr()
+                t.td(gui.Label(_("Journal")))
+            special_button = gui.Button(t)
+            def closeAndLoad():
+                dialog.close()
+                self.script.refreshTheater()
+                self.script.journal = not self.script.journal
+                self.openLoadDialog()
+            special_button.connect(gui.CLICK, closeAndLoad)
+        if self.script.journal:
             if self.script.filepath:
                 loadName = os.path.basename(self.script.filepath)
             elif self.script.metadata.title:
                 loadName = self.script.metadata.title
             else:
                 loadName = ""
-            d = gui.JournalDialog(_("Open a script"),
+            dialog = gui.JournalDialog(_("Open a script"),
                                   loadName,
-                                  True)
-            d.loadJournalItems(datastore.find('title'))
-            d.open()
-            d.connect(gui.CLOSE, self.script.refreshTheater);
-            d.connect(gui.CHANGE, self.loadFile);
+                                  True,
+                                  special_button=special_button)
+            dialog.loadJournalItems(datastore.find('title'))
+            dialog.open()
+            dialog.connect(gui.CLOSE, self.script.refreshTheater);
+            dialog.connect(gui.CHANGE, self.loadFile);
         else:
             if self.script.filepath:
                 loadName = os.path.basename(self.script.filepath)
             else:
                 loadName = ""
-            d = gui.FileDialog(_("Open a script"),
+            dialog = gui.FileDialog(_("Open a script"),
                                _("Okay"), 
                                path=directories['sample-scripts'], 
                                filter=[information['filetype']],
                                default= loadName,
-                               favorites = defaults['favorites'])
-            d.open()
-            d.connect(gui.CLOSE, self.script.refreshTheater);
-            d.connect(gui.CHANGE, self.loadFile);
+                               favorites = defaults['favorites'],
+                               special_button = special_button)
+            dialog.open()
+            dialog.connect(gui.CLOSE, self.script.refreshTheater);
+            dialog.connect(gui.CHANGE, self.loadFile);
     def openSaveDialog(self):
         if self.script.filepath is not None:
             self.script.saveFile(self.script.filepath);

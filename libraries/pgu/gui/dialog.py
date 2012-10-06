@@ -119,7 +119,7 @@ class TeacherDialog(Dialog):
             self.close()
             
 class JournalDialog(Dialog):
-    def __init__(self, title="", default="", editable= True):
+    def __init__(self, title="", default="", editable= True, special_button= None):
         self.list = area.List(width=350, height=150)
         self.list.connect(CHANGE, self.itemClicked, None)
         self.journalItems = []
@@ -136,7 +136,11 @@ class JournalDialog(Dialog):
         body.tr()
         body.td(self.list, colspan= 2)
         body.tr()
-        body.td(self.input_item, colspan= 2)
+        if special_button:
+            body.td(self.input_item, colspan= 1)
+            body.td(special_button, colspan= 1)
+        else:
+            body.td(self.input_item, colspan= 2)
         body.tr()
         body.td(okButton)
         body.td(cancelButton)
@@ -216,7 +220,7 @@ class FileDialog(Dialog):
     </dl>
     """
     
-    def __init__(self, title_txt="File Browser", button_txt="Okay", cls="dialog", path=None, filter=None, default="", favorites=None):
+    def __init__(self, title_txt="File Browser", button_txt="Okay", cls="dialog", path=None, filter=None, default="", favorites=None, special_button=None):
         cls1 = 'filedialog'
         self.filter= filter;
         if not path: self.curdir = os.getcwd()
@@ -240,9 +244,11 @@ class FileDialog(Dialog):
         self.body.td(self.input_dir, style=td_style)
         self.body.td(self.button_redirect, style=td_style)
         self.button_redirect.connect(CLICK, self._button_redirect_clicked_, None);
-        if favorites:
+        if favorites or special_button:
             self.body.tr()
             d= document.Document()
+            if special_button:
+                d.add(special_button)
             for icon, text, link in favorites:
                 t= table.Table()
                 t.tr()
