@@ -5,11 +5,10 @@ import random;
 import math;
 from struct import unpack;
 
+#_ = lambda x: x
+
 import pygame
 import spyral
-#import numpy;
-
-_ = lambda x: x
 
 from constants import *;
 import state;

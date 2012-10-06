@@ -9,7 +9,7 @@ from pygame.locals import *;
 from auxiliary import *;
 import voice;
 
-_ = lambda x: x
+#_ = lambda x: x
 
 TICKS_PER_SECOND = 30  # Frames Per Second
 GAME_TITLE= 'Broadway';
@@ -56,19 +56,6 @@ empty= tuple();
 
 pgu= {};
 fonts= {};
-
-languages= ['English','Espa'+chr(241)+'ol', 'Creole', 'Fran'+chr(231)+'ais'];
-languageCodes= ['en','es','cr','fr']
-language= languages[0]
-languageCode = languageCodes[0]
-changeLanguage(language, languageCode)
-
-
-def translate(aString):
-	if languages.index(language):
-		if aString in translations:
-			return translations[aString]
-	return aString
 
 
 images= {};
@@ -188,18 +175,26 @@ else:
 							('games/broadway/images/dialog-star.png', _("Built-in"), '/'),
 							('games/broadway/images/dialog-house.png', _("Home"), '~/')]
 
-settingsData= json.load(open('games/broadway/settings.txt', 'r'))
-hacks= {};
-hacks['mute']= settingsData['Mute'];
-hacks['recording']= False
-hacks['teacher']= settingsData['Teacher']
-hacks['subtitle']= settingsData['Subtitle']
-hacks['server']= settingsData['Server']
+
 
 # All the strings that don't show up naturally, to ensure that they're 
 # automatically translated. This is probably a horrible way of doing this, but
 # a better way wasn't immediately clear and I'm done investing time into this!
-[_("Angry"), _("Annoyed"), _("Anxious"), _("Bored"), _("Cheerful"), __("Cocky"), _("Distraught"), _("Embarrassed"), _("Excited"), _("Grumpy"), _("Guilty"), _("Happy"), _("Joyful"), _("Loving"), _("Normal"), _("Sad"), _("Scared"), _("Surprised"), _("Unhappy"), _("Worried"), _("Stands"), _("Left"), _("Right"), _("Cheerleader (Blue)"), _("Cheerleader (Brown)"), _("Cheerleader (Pink)"), _("Hippie (Brown)"), _("Hippie (Green)"), _("Hippie (Pink)"), _("Little girl (Brown)"), _("Little girl (Peach)"), _("Little girl (Yellow)"), _("Narrator"), _("Nerd (Brown)"), _("Nerd (Green)"), _("Nerd (Red)"), _("Princess (Blue)"), _("Princess (Green)"), _("Princess (Peach)"), _("Basketball"), _("Beach"), _("Country"), _("Jungle"), _("School"), _("Theater"), _("Tutorial"), _("Winter"), _("Female 1"), _("Female 2"), _("Female 3"), _("Female 4"), _("Female 5"), _("Female Fast"), _("Female Slow"), _("Whisper"), _("Male 1"), _("Male 2"), _("Male 3"), _("Male 4"), _("Male 5"), _("Male Fast"), _("Male Slow"), _("Croaker")_("File"), _("Backdrop"), _("Actor"), _("Plan"), _("Write"), _("Theater"), _("Generic Panel")]
+k = [_("Angry"), _("Annoyed"), _("Anxious"), _("Bored"), _("Cheerful"), _("Cocky"), 
+     _("Distraught"), _("Embarrassed"), _("Excited"), _("Grumpy"), _("Guilty"), 
+     _("Happy"), _("Joyful"), _("Loving"), _("Normal"), _("Sad"), _("Scared"), 
+     _("Surprised"), _("Unhappy"), _("Worried"), _("Stands"), _("Left"), _("Right"), 
+     _("Cheerleader (Blue)"), _("Cheerleader (Brown)"), _("Cheerleader (Pink)"), 
+     _("Hippie (Brown)"), _("Hippie (Green)"), _("Hippie (Pink)"), _("Little girl (Brown)"), 
+     _("Little girl (Peach)"), _("Little girl (Yellow)"), _("Narrator"), _("Nerd (Brown)"), 
+     _("Nerd (Green)"), _("Nerd (Red)"), _("Princess (Blue)"), _("Princess (Green)"), 
+     _("Princess (Peach)"), _("Basketball"), _("Beach"), _("Country"), _("Jungle"), 
+     _("School"), _("Theater"), _("Tutorial"), _("Winter"), _("Female 1"), _("Female 2"), 
+     _("Female 3"), _("Female 4"), _("Female 5"), _("Female Fast"), _("Female Slow"), 
+     _("Whisper"), _("Male 1"), _("Male 2"), _("Male 3"), _("Male 4"), _("Male 5"), 
+     _("Male Fast"), _("Male Slow"), _("Croaker"), _("File"), _("Backdrop"), 
+     _("Actor"), _("Plan"), _("Write"), _("Theater"), _("Generic Panel")]
+del k
 
 processes= {};
 if os.name == 'nt':

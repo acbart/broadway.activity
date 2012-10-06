@@ -1,7 +1,5 @@
 import string;
 
-_ = lambda x : x
-
 # Pygame Imports
 import pygame
 from pygame.locals import *
@@ -22,7 +20,7 @@ import actor;
 import action;
 
 class Panel(gui.Container):
-	name= "Generic Panel";
+	name= _("Generic Panel")
 	"""
 	A Panel is a PGU *Container* that can be swapped by a *Tab*. There are five
 	tabs in Broadway. This class is meant to be subclassed.
@@ -69,7 +67,7 @@ class FilePanel(Panel):
 	This panel holds the saving/loading/new buttons, the metadata editing area,
 	and the credits label.
 	"""
-	name= "File";
+	name= _("File")
 	
 	def __init__(self, script):
 		"""

@@ -1,12 +1,26 @@
 # System Imports
-import random;
-import time;
-import os, sys, glob;
+import random
+import time
+import os, sys, glob
+import locale
+
+# Top-most globals
+import simplejson as json;
+settingsData= json.load(open('games/broadway/settings.txt', 'r'))
+hacks= {};
+hacks['mute']= settingsData['Mute'];
+hacks['recording']= False
+hacks['teacher']= settingsData['Teacher']
+hacks['subtitle']= settingsData['Subtitle']
+hacks['server']= settingsData['Server']
+hacks['language']= settingsData['Language']
 
 # Localization
 import gettext;
-gtlanguage = gettext.translation('broadway', 'games/broadway/po', languages=['en'])
+
+gtlanguage = gettext.translation('broadway', 'games/broadway/po', languages=[hacks['language']])
 gtlanguage.install()
+_ = gettext.gettext
 
 #import cProfile
 #from guppy import hpy; hp = hpy();

@@ -6,19 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Broadway 2.1\n"
 "POT-Creation-Date: 2012-10-05 23:01+Eastern Daylight Time\n"
-"PO-Revision-Date: 2012-10-06 00:08-0500\n"
+"PO-Revision-Date: 2012-10-05 23:36-0500\n"
 "Last-Translator: Austin Cory Bart <acbart@vt.edu>\n"
 "Language-Team: Austin Cory Bart <acbart@vt.edu>\n"
-"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 1.5.3\n"
+"Language: en\n"
 
 #: .\games\broadway\action.py:87
 msgid "<Looks %{expression}s>"
-msgstr "<Parece %{expression}s>"
+msgstr ""
 
 #: .\games\broadway\action.py:89 .\games\broadway\action.py:116
 msgid "<Moves>"
@@ -60,7 +60,7 @@ msgstr ""
 
 #: .\games\broadway\action.py:114
 msgid "<Looks %s>"
-msgstr "<Parece %s>"
+msgstr ""
 
 #: .\games\broadway\action.py:118
 msgid "<%s>"
@@ -501,7 +501,7 @@ msgstr ""
 
 #: .\games\broadway\constants.py:214
 msgid "File"
-msgstr "Archivo"
+msgstr ""
 
 #: .\games\broadway\constants.py:214
 msgid "Male Fast"

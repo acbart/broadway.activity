@@ -7,7 +7,7 @@ import spyral
 from constants import *;
 import auxiliary;
 
-_ = lambda x: x
+#_ = lambda x: x
 
 class Backdrop(spyral.sprite.Sprite):
 	"""

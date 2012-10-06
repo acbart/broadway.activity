@@ -7,7 +7,7 @@ import requests
 
 import pygame
 
-_ = lambda x: x
+#_ = lambda x: x
 
 """
 HACK: Auxilary files are always dirty hacks, but often very convenient ones.
@@ -48,31 +48,6 @@ def changeSetting(key, value):
 	data= json.load(open('games/broadway/settings.txt', 'r'))
 	data[key] = value
 	json.dump(data, open('games/broadway/settings.txt', 'w'))
-	
-	
-translations= {}
-def changeLanguage(newLanguage, code):
-	global language
-	language= newLanguage
-	global languageCode
-	languageCode= code
-	global translations
-	translations= {}
-	#try:
-	if True:
-		translationsFile = open('games/broadway/po/'+code+'.translations.txt', 'r')
-		msgid, msgstr = "", ""
-		for aLine in translationsFile:
-			if aLine.startswith('msgid "'):
-				msgid = aLine[7:-1]
-			if aLine.startswith('msgstr "'):
-				msgstr = aLine[8:-1]
-				translations[msgid]= msgstr
-				msgid, msgstr = "", ""
-		translationsFile.close()
-
-def getLanguageCode():
-	return languageCode
 	
 def findImage(directory, pattern, extensions):
 	'''Given a directory, a pattern, and a list of valid extensions,
