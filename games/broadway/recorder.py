@@ -6,7 +6,7 @@ import pygame
 from auxiliary import *;
 from constants import *;
 
-_ = lambda x: x
+#_ = lambda x: x
 
 class Recorder(object):
 	def __init__(self):

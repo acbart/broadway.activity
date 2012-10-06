@@ -15,7 +15,7 @@ from scriptMetadata import ScriptMetadata;
 from director import Director;
 import subtitler;
 
-_ = lambda x: x
+#_ = lambda x: x
 
 class Script(object):
 	"""

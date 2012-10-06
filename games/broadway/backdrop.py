@@ -4,7 +4,8 @@ import itertools;
 import pygame
 import spyral
 
-from constants import *;
+from broadway import hacks
+from constants import *
 import auxiliary;
 
 #_ = lambda x: x
@@ -41,8 +42,7 @@ class Backdrop(spyral.sprite.Sprite):
 		"""
 		Loads the twists associated with the Backdrop
 		"""
-		#twistsPath= os.path.join('backdrops', self.directory+'_twists_'+getLanguageCode()+'.txt');
-		twistsPath= os.path.join('games/broadway/backdrops', 'twists.en.txt');
+		twistsPath= os.path.join('games/broadway/backdrops', 'twists.%s.txt' % hacks['language']);
 		twistsFile= open(twistsPath, 'r');
 		self.twists= [[] for x in xrange(limits['actors'])];
 		capturingState = 'Seeking'

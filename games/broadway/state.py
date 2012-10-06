@@ -4,7 +4,7 @@ import spyral
 from constants import *;
 import action;
 
-_ = lambda x: x
+#_ = lambda x: x
 
 class State(object):
 	"""

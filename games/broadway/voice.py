@@ -3,7 +3,7 @@ import simplejson as json;
 import constants;
 import auxiliary;
 
-_ = lambda x: x
+#_ = lambda x: x
 
 class Voice(object):
 	"""

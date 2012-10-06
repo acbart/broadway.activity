@@ -5,7 +5,7 @@ import os, sys
 import pygame;
 from pygame.locals import *;
 
-
+from broadway import hacks
 from auxiliary import *;
 import voice;
 

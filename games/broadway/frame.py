@@ -6,7 +6,7 @@ import state;
 
 import weakref
 
-_ = lambda x: x
+#_ = lambda x: x
 
 class Frame(weakref.WeakKeyDictionary):
 	"""

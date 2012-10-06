@@ -4,7 +4,7 @@ import spyral
 from constants import *;
 import actor;
 
-_ = lambda x: x
+#_ = lambda x: x
 
 class Director(object):
 	"""

@@ -3,7 +3,7 @@ import simplejson as json;
 from auxiliary import *;
 from constants import *;
 
-_ = lambda x: x
+#_ = lambda x: x
 
 class ScriptMetadata(object):
 	"""

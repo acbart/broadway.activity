@@ -11,6 +11,7 @@ import pygame
 import spyral
 
 from constants import *;
+from broadway import hacks
 import state;
 import action;
 import voice;
