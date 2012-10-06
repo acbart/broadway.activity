@@ -15,6 +15,23 @@ from scriptMetadata import ScriptMetadata;
 from director import Director;
 import subtitler;
 
+try:
+    from sugar.datastore import datastore
+except:
+    class datastore(object):
+        @staticmethod
+        def create():
+            class DSObject(object):
+                def __init__(self):
+                    self.metadata = {}
+            return DSObject()
+        @staticmethod
+        def write(ds_object):
+            pass
+        @staticmethod
+        def find(query, sorting=None):
+            pass
+
 #_ = lambda x: x
 
 class Script(object):
