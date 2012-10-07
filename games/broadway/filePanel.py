@@ -430,7 +430,7 @@ class FilePanel(panel.Panel):
                                   loadName,
                                   False,
                                   special_button=special_button)
-            dialog.loadJournalItems(datastore.find({"activity"   : "org.laptop.community.broadway"))
+            dialog.loadJournalItems(datastore.find({"activity"   : "org.laptop.community.broadway"}))
         else:
             if self.script.filepath:
                 loadName = os.path.basename(self.script.filepath)
