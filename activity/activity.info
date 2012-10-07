@@ -6,7 +6,7 @@ name = broadway
 # version of the Activity as encoded in the file-name 
 # may be used (eventually) to allow for auto-updating
 # activities to their latest versions.
-activity_version = 1
+activity_version = 3
 # Sugar's "host environment version", doesn't seem to be used for anything
 host_version = 1
 # DBUS service name which is used to communicate with this activity 

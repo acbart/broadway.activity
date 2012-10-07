@@ -19,7 +19,7 @@ try:
 except:
     class datastore(object):
         class DSObject(object):
-            def __init__(self, name=""):
+            def __init__(self, name="", metadata= None):
                 self.metadata = {'title' : name}
             def get_file_path(self):
                 return r"C:\Users\acbart\Projects\broadway.activity\games\broadway\samples\An Example Story.bdw"
@@ -35,6 +35,7 @@ except:
         def find(query, sorting=None):
             names = ["Sample Story", "The Beach", "Monochrome No Kiss"]
             return [datastore.DSObject(name) for name in names]
+            
 
 class FilePanel(panel.Panel):
     """
@@ -50,6 +51,13 @@ class FilePanel(panel.Panel):
         panel.Panel.__init__(self);
         self.script= script;
         self.testingTable= None;
+        
+    def autogenerateMetadata(self):
+        return {"title"      : self.script.metadata.title,
+                "activity"   : "org.laptop.community.broadway",
+                "mime_type"  : "application/broadway",
+                "description": self.script.metadata.description}
+                
     
     def doNothing(self):
         pass;
@@ -345,7 +353,7 @@ class FilePanel(panel.Panel):
         fullPath= _widget.value;
         dialog.close()
         if self.script.journal:
-            dsObject= datastore.create()
+            dsObject= datastore.create(metadata = self.autogenerateMetadata)
             dsObject.metadata['title']= fullPath.actualValue
             if fancy == "Fancy":
                 dsObject.metadata['mime_type'] = 'text/html'
@@ -422,7 +430,7 @@ class FilePanel(panel.Panel):
                                   loadName,
                                   False,
                                   special_button=special_button)
-            dialog.loadJournalItems(datastore.find('title'))
+            dialog.loadJournalItems(datastore.find({"activity"   : "org.laptop.community.broadway"))
         else:
             if self.script.filepath:
                 loadName = os.path.basename(self.script.filepath)
@@ -486,7 +494,7 @@ class FilePanel(panel.Panel):
                                   saveName,
                                   True,
                                   special_button=special_button)
-            dialog.loadJournalItems(datastore.find('title'))
+            dialog.loadJournalItems(datastore.find({"activity"   : "org.laptop.community.broadway"}))
         else:
             if self.script.filepath:
                 saveName = os.path.basename(self.script.filepath)
@@ -533,7 +541,7 @@ class FilePanel(panel.Panel):
         fullPath= _widget.value;
         if self.script.journal:
             if type(fullPath.actualValue) == str:
-                dsObject= datastore.create()
+                dsObject= datastore.create(metadata = self.autogenerateMetadata())
                 dsObject.metadata['title']= fullPath.actualValue
                 self.script.saveFile(directories['instance'] + 'temp.bdw')
                 dsObject.set_file_path(self.script.filepath)
