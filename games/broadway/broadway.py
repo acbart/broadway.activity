@@ -54,7 +54,8 @@ fonts['italic']= pygame.font.SysFont('VeraIt.ttf', 30);
 
 # Last Broadway Imports
 import script;
-import panel;
+import panel
+import tab
 import actor;
 from recorder import Recorder
 
@@ -94,14 +95,15 @@ class Broadway(spyral.scene.Scene):
 			croppedFrame= spyral.util.new_surface(geom['screen'].size);
 			croppedFrame.blit(images['main-background'], geom['frame'], area=geom['screen']);
 			images['main-background']= croppedFrame;
-		self.guiContainer.add(gui.Image(images['main-background']), *geom['screen'].topleft);
+		self.guiContainer.add(gui.Image(images['main-background']),
+                              *geom['screen'].topleft);
 		self.guiContainer.add(gui.Image(images['main-tab']),
 							  *geom['tab'].topleft);
 		
 		
 		
 		# Tab is used to switch between the different panels
-		self.tab= panel.Tab(self.script);
+		self.tab= tab.Tab(self.script);
 		
 		# Add the tab and panel holder to the screen
 		self.guiContainer.add(self.tab, *geom['tab'].topleft);

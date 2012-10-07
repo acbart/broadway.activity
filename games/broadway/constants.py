@@ -220,7 +220,7 @@ else:
 if hacks['xo']:
     try:
         import sugar.activity.activity
-        directories['instance'] = os.path.join(sugar.activity.activity.get_activity_root(), 'instance')
+        directories['instance'] = os.path.join(sugar.activity.activity.get_activity_root(), 'instance/')
     except:
         directories['instance'] = 'games/broadway/'
 else:
