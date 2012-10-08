@@ -150,7 +150,7 @@ class JournalDialog(Dialog):
         self.journalItems = journalItems
         self.journalKey = key
         for anItem in journalItems:
-            self.list.add(anItem.metadata[key], value=anItem)
+            self.list.add(str(anItem.metadata[key]), value=anItem)
         self.itemTyped(None)
             
     def itemClicked(self, arg):

@@ -22,7 +22,7 @@ except:
             def __init__(self, name="", metadata= None):
                 self.metadata = {'title' : name}
             def get_file_path(self):
-                return r"C:\Users\acbart\Projects\broadway.activity\games\broadway\samples\An Example Story.bdw"
+                return "games/broadway/samples/An Example Story.bdw"
             def set_file_path(self, path):
                 pass
         @staticmethod
@@ -33,8 +33,8 @@ except:
             pass
         @staticmethod
         def find(query, sorting=None):
-            names = ["Sample Story", "The Beach", "Monochrome No Kiss"]
-            return [datastore.DSObject(name) for name in names]
+            names = ["Sample Story", "The Beach", "Ignore me I am Debugging"]
+            return [datastore.DSObject(name) for name in names], 0
             
 
 class FilePanel(panel.Panel):
@@ -67,14 +67,15 @@ class FilePanel(panel.Panel):
         fileButtonsTable= gui.Table(width= 120,
                                     height= geom['panel'].height);
         
-        buttons= [( _("New"), "file-button-new", self.openNewDialog),
+        buttons= [( _("Quit"), "file-button-quit", self.quit),
+                  ( _("New"), "file-button-new", self.openNewDialog),
                   ( _("Open"), "file-button-load", self.openLoadDialog),
                   ( _("Save"), "file-button-save", self.openSaveDialog),
                   ( _("Save As"), "file-button-saveAs", self.openSaveAsDialog),
                   ( _("Export"), "file-button-export", self.checkIfScriptNamed)];
         for aButton in buttons:
             properName, internalName, function= aButton;
-            aButton= gui.Button(properName, name=internalName, style={'width': 90, 'height': 32});
+            aButton= gui.Button(properName, name=internalName, style={'width': 90, 'height': 30});
             aButton.connect(gui.CLICK, function);
             fileButtonsTable.tr();
             fileButtonsTable.td(aButton, align=0);
@@ -136,6 +137,9 @@ class FilePanel(panel.Panel):
         #self.owningWidgets.append(languageSelector);
         
         self.script.controls["file-button-save"].disabled= not self.script.unsaved;
+        
+    def quit(self):
+        pygame.event.post(pygame.event.Event(pygame.QUIT, {}))
     
     def openCreditsDialog(self):
         """
@@ -281,15 +285,17 @@ class FilePanel(panel.Panel):
         if location == "Here":
             if fancy == "Fancy":
                 valueType = ['.html']
+                mimeType = "text/html"
             else:
                 valueType = ['.txt']
+                mimeType = "text/plain"
             if self.script.journal:
                 exportName = self.script.metadata.title
                 dialog = gui.JournalDialog(_("Export a script"),
                                            exportName,
                                            True,
                                            special_button=special_button)
-                dialog.loadJournalItems(datastore.find('title'))
+                dialog.loadJournalItems(datastore.find({'mime_type' : mimeType})[0])
             else:
                 exportName = filenameStrip(self.script.metadata.title) + valueType[0]
                 dialog = gui.FileDialog(_("Export as %(fanciness)s") % {"fanciness" : _(fancy)},
@@ -353,7 +359,9 @@ class FilePanel(panel.Panel):
         fullPath= _widget.value;
         dialog.close()
         if self.script.journal:
-            dsObject= datastore.create(metadata = self.autogenerateMetadata)
+            dsObject= datastore.create()
+            print dir(dsObject.metadata)
+            dsObject.metadata.get_dictionary().update(self.autogenerateMetadata())
             dsObject.metadata['title']= fullPath.actualValue
             if fancy == "Fancy":
                 dsObject.metadata['mime_type'] = 'text/html'
@@ -430,7 +438,7 @@ class FilePanel(panel.Panel):
                                   loadName,
                                   False,
                                   special_button=special_button)
-            dialog.loadJournalItems(datastore.find({"activity"   : "org.laptop.community.broadway"}))
+            dialog.loadJournalItems(datastore.find({"mime_type" :"application/broadway"})[0])
         else:
             if self.script.filepath:
                 loadName = os.path.basename(self.script.filepath)
@@ -494,7 +502,7 @@ class FilePanel(panel.Panel):
                                   saveName,
                                   True,
                                   special_button=special_button)
-            dialog.loadJournalItems(datastore.find({"activity"   : "org.laptop.community.broadway"}))
+            dialog.loadJournalItems(datastore.find({"mime_type" : "application/broadway"})[0])
         else:
             if self.script.filepath:
                 saveName = os.path.basename(self.script.filepath)
@@ -541,7 +549,9 @@ class FilePanel(panel.Panel):
         fullPath= _widget.value;
         if self.script.journal:
             if type(fullPath.actualValue) == str:
-                dsObject= datastore.create(metadata = self.autogenerateMetadata())
+                dsObject= datastore.create()
+                print dir(dsObject.metadata)
+                dsObject.metadata.get_dictionary().update(self.autogenerateMetadata())
                 dsObject.metadata['title']= fullPath.actualValue
                 self.script.saveFile(directories['instance'] + 'temp.bdw')
                 dsObject.set_file_path(self.script.filepath)
